@@ -20,3 +20,9 @@ jobs:
             tar -czf "$tag.tar.gz" -C "$dir" .
             gh release create "$tag" "$tag.tar.gz" --title "$tag" --notes "$tag"
           done
+          gh api "repos/$GITHUB_REPOSITORY/releases" --paginate | jq -s '{flows: [.[][] | select(.tag_name != "index") | . as $r
+            | ($r.tag_name | capture("^(?<name>.+)-(?<version>[^-]+)$")) as $t
+            | $r.assets[] | select(.name | endswith(".tar.gz"))
+            | {name: $t.name, version: $t.version, url: .browser_download_url, sha256: (.digest | sub("^sha256:"; ""))}]}' > index.json
+          gh release view index >/dev/null 2>&1 || gh release create index --title index --notes index --latest=false
+          gh release upload index index.json --clobber
