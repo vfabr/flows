@@ -27,9 +27,10 @@ straight to O. Both declare it, not one.
 
 ## Goal
 
-The goal comes from outside; the pair does not invent it. With the first K move the agent
-asks what the goal is and who its source is, and writes the answer down verbatim. After
-that the goal is not discussed, only clarified. The source of the goal accepts the
+The goal comes from outside; the pair does not invent it. The goal is found out in the
+project's start chat, before K: the agent asks what the goal is, who its source is and who
+accepts the result, and the human saves the answer verbatim as the goal artifact. K starts
+from that artifact. After that the goal is not discussed, only clarified. The source of the goal accepts the
 result; if at acceptance they say "this is not it", that is a new goal and a new round,
 not a rollback.
 
@@ -106,7 +107,8 @@ blocker is, where we will roll back to.
 ## Session start
 
 Before the first answer in a stage, read the artifact of the previous stage (in order
-K → R → E → D → O; K has no previous one). ife gives the path in the first message of the
+start chat → K → R → E → D → O; the start chat has no previous one, and then this step
+is skipped without mentioning it). ife gives the path in the first message of the
 chat. First move: a short retelling of that artifact, an explicit "I have
 objections" or "no objections". If there are objections, the work is not taken up until
 they are sorted out. The agent does not change this file or the stage statuses.
