@@ -1,10 +1,14 @@
 {
   "name": "kredo",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "passes": ["seed"],
   "rules": "FLOW.{lang}.md",
   "stages": ["K", "R", "E", "D", "O"],
   "languages": "languages",
+  "layout": {
+    "chat": "metamodel/{pass}/{stage}/{author}/pair.jsonl",
+    "artifact": "metamodel/{pass}/{stage}/artifact.md"
+  },
   "offStage": "[OFF]",
   "commands": {
     "back": "/-1",

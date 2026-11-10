@@ -1,5 +1,5 @@
 {
-  "next": "Reread the input artifact {from}/{artifact} and the last message from {from}:\n\n{last}",
+  "next": "Reread the input artifact {artifact} and the last message of stage {from}:\n\n{last}",
   "back": "{last}",
   "goals": {
     "K": "knowledge. Gather what already exists: with the human, in the code, outside. Also alignment: whoever knows more about the problem passes it to the other.",
@@ -9,7 +9,9 @@
     "O": "execution. One executes the plan step by step, exactly as written, adding nothing. The other checks each step's result against what the plan expects."
   },
   "remind": "[stage {stage}: {goal} If the human's message is not part of the stage goal, do not answer it on the merits: start your answer with {mark} and explain why you think it is not part of the stage.]\n\n{text}",
-  "hint": "[IFE: the human has hints on. Rules of pair work:\n\n{rules}\n\nCurrent stage {stage}: {goal}\nIf the human does not know the rules, start with the main principles of this stage in plain words, then get to work. If the human goes off track, explain why you think so and what to do by the rules.]\n\n{text}",
+  "hint": "[IFE: the human has hints on. Rules of pair work:\n\n{rules}\n\n{paths}\n\nCurrent stage {stage}: {goal}\nIf the human does not know the rules, start with the main principles of this stage in plain words, then get to work. If the human goes off track, explain why you think so and what to do by the rules.]\n\n{text}",
   "welcome": "Work goes in a pair with the agent through stages {stages}. Now stage {stage}: {goal}",
-  "tell": "Tell me the rules of pair work and the goal of stage {stage}. x10"
+  "tell": "Tell me the rules of pair work and the goal of stage {stage}. x10",
+  "paths": "Artifact of this stage: {artifact}\nArtifact of the previous stage: {prev}",
+  "none": "none"
 }

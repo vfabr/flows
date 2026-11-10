@@ -105,15 +105,15 @@ blocker is, where we will roll back to.
 
 ## Session start
 
-Before the first answer in a stage, read the artifact of the previous stage: artifact.md
-in its folder (for E it is R/artifact.md, and so on in order K → R → E → D → O; K has no
-previous one). First move: a short retelling of that artifact, an explicit "I have
+Before the first answer in a stage, read the artifact of the previous stage (in order
+K → R → E → D → O; K has no previous one). ife gives the path in the first message of the
+chat. First move: a short retelling of that artifact, an explicit "I have
 objections" or "no objections". If there are objections, the work is not taken up until
 they are sorted out. The agent does not change this file or the stage statuses.
 
 ## Stage artifact
 
-One file per stage: artifact.md in the stage folder.
+One file per stage; ife gives its path in the first message of the chat.
 Skeleton: header (status, input, dialogs), Result, Prediction for the next stage,
 Incomplete. In Result each stage has its own: K knowledge, problem, criterion; R scheme,
 hypotheses, why it may not work; E the plan of experiments and their results; D the plan
