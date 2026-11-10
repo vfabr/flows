@@ -1,0 +1,13 @@
+{
+  "name": "kredo",
+  "version": "1.3.0",
+  "passes": ["seed"],
+  "rules": "FLOW.{lang}.md",
+  "stages": ["K", "R", "E", "D", "O"],
+  "languages": "languages",
+  "offStage": "[OFF]",
+  "commands": {
+    "back": "/-1",
+    "next": "/+1"
+  }
+}

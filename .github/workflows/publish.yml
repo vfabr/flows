@@ -1,0 +1,22 @@
+name: publish
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: release new versions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for f in */flow.json; do
+            dir=$(dirname "$f")
+            tag="$(jq -r .name "$f")-$(jq -r .version "$f")"
+            if gh release view "$tag" >/dev/null 2>&1; then continue; fi
+            tar -czf "$tag.tar.gz" -C "$dir" .
+            gh release create "$tag" "$tag.tar.gz" --title "$tag" --notes "$tag"
+          done
