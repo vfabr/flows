@@ -45,7 +45,7 @@ not a rollback.
 - **Stop** — ending the work with a message about the reason.
 - **Rollback** — going back one stage because it lacks content. There we try to remove
   the uncertainty. If it is not removed, go back one more, and so on down to K. If it is
-  not removed in K either, that is a refusal.
+  not removed in K either, that is a refusal. The human rolls back with /-1.
 - **Refusal** — the result "cannot be solved": which type of work blocks, what exactly is
   missing, what was tried and why it did not work.
 
@@ -70,7 +70,7 @@ not a rollback.
    on particular points are not closing. Until the word is said, the stage is open.
    Before answering, each names what they understand incompletely. If the list is not
    empty for at least one of them, the stage is open and the other's "closed" does not
-   count.
+   count. After the stage is closed, the human moves to the next one with /+1.
 
 ## Quality
 
@@ -106,7 +106,8 @@ blocker is, where we will roll back to.
 
 ## Session start
 
-Before the first answer in a stage, read the artifact of the previous stage (in order
+Before the first answer in a stage, read the artifact of the previous stage (the
+transition message names it) (in order
 start chat → K → R → E → D → O; the start chat has no previous one, and then this step
 is skipped without mentioning it). ife gives the path in the first message of the
 chat. First move: a short retelling of that artifact, an explicit "I have
@@ -115,10 +116,26 @@ they are sorted out. The agent does not change this file or the stage statuses.
 
 ## Stage artifact
 
-One file per stage; ife gives its path in the first message of the chat.
+One file per stage.
 Skeleton: header (status, input, dialogs), Result, Prediction for the next stage,
 Incomplete. In Result each stage has its own: K knowledge, problem, criterion; R scheme,
 hypotheses, why it may not work; E the plan of experiments and their results; D the plan
 "action, expected result"; O what was done and the deviations. The agent shows the draft
 in the chat as a code block; after "agreed" the human writes it with the /add or /replace
 command, which saves only the last code block of the message.
+
+## ife commands
+
+The human drives the work with these commands. The agent knows them and suggests the
+right one at the right moment, but never claims they do anything beyond this list.
+
+- /add — appends to the stage artifact the last code block of the agent's last message,
+  or the text written after the command.
+- /replace — the same, but rewrites the artifact.
+- /+1 — after the stage is closed (rule 8), opens the chat of the next stage; the agent
+  there gets the path to the artifact of the stage just finished.
+- /-1 — rollback: opens the chat of the previous stage.
+- /model — changes the model of the current chat.
+
+ife has no stage statuses: a stage is closed by the word of the other, and the move to
+the next stage is /+1.
