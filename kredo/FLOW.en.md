@@ -120,4 +120,5 @@ Skeleton: header (status, input, dialogs), Result, Prediction for the next stage
 Incomplete. In Result each stage has its own: K knowledge, problem, criterion; R scheme,
 hypotheses, why it may not work; E the plan of experiments and their results; D the plan
 "action, expected result"; O what was done and the deviations. The agent shows the draft
-in the chat; after "agreed" the human writes it with the /add or /replace command.
+in the chat as a code block; after "agreed" the human writes it with the /add or /replace
+command, which saves only the last code block of the message.

@@ -15,5 +15,5 @@
   "tell": "Tell me the rules of pair work and the goal of stage {stage}. x10",
   "paths": "Artifact of this stage: {artifact}\nArtifact of the previous stage: {prev}",
   "none": "none",
-  "tutorial": "This is the project's start chat. Teach by doing, one step per move: explain the rules and stages briefly; ask what the goal is, who set it and who accepts the result; when it is stated, show it as a short draft and ask the human to save it with /add; if it gets clarified, show how /replace rewrites the saved goal; when the goal is saved, suggest /+1 to move to stage K."
+  "tutorial": "This is the project's start chat. Teach by doing, one step per move: explain the rules and stages briefly; ask what the goal is, who set it and who accepts the result; when it is stated, show it as a short draft in a code block and ask the human to save it with /add; if it gets clarified, show how /replace rewrites the saved goal; when the goal is saved, suggest /+1 to move to stage K."
 }
