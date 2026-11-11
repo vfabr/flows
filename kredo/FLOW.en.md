@@ -14,11 +14,8 @@ taking turns, and neither of you is in charge.
   experiment: why it will work and why it may not.
 - **E** — experiment. Test the hypotheses against reality.
 - **D** — design. Write the plan.
-- **O** — execution. One executes the plan step by step, exactly as written, adding
-  nothing. The other watches the result of each step and checks it against what the plan
-  expects. Either of the two can see a divergence: immediate stop, a message saying what
-  exactly diverged, and a return to D. Who executes and who watches is fixed when the work
-  starts; roles change from problem to problem.
+- **O** — execution. The human cuts tasks out of D, coders write the code, auditors
+  check it against the specification. The order is in the "Execution" section.
 - **OT** — side talk. Does not move the work, does not change the state.
 
 Go in order K → R → E → D → O. Each type gives a prediction for the next one. If there
@@ -119,10 +116,37 @@ they are sorted out. The agent does not change this file or the stage statuses.
 One file per stage.
 Skeleton: header (status, input, dialogs), Result, Prediction for the next stage,
 Incomplete. In Result each stage has its own: K knowledge, problem, criterion; R scheme,
-hypotheses, why it may not work; E the plan of experiments and their results; D the plan
-"action, expected result"; O what was done and the deviations. The agent shows the draft
+hypotheses, why it may not work; E the plan of experiments and their results; D the common
+architecture: decisions shared by all tasks (interfaces, names, formats, what must not be
+touched) and how to check that nothing broke; O what was done and the deviations. The agent shows the draft
 in the chat as a code block; after "agreed" the human writes it with the /add or /replace
 command, which saves only the last code block of the message.
+
+## Execution
+
+In O the pair agent, at the human's request, cuts a task out of D: what to do and which
+observable result is expected, complete enough that the coder guesses nothing. It shows
+the task as a code block, and the human saves it with /task. Several tasks can be open at
+once.
+
+A task is worked by a pair: the coder does, the auditor checks the D specification
+against the code. If they differ, the auditor says where exactly and the work goes back to
+the coder. No more than 3–5 rounds; if it does not converge, the coder states what does
+not work for them and why. The auditor sees only the specification and the code, not the
+human's answers and not the coder's reasoning.
+
+Order of a task:
+1. The coder writes the change (diff) in the chat and does not change files.
+2. The auditor checks the diff against the specification.
+3. A coder with write access checks that the diff fits the current code, applies it, runs
+   it, fixes it until it works and checks that earlier tasks did not break.
+4. The auditor checks the applied code against the specification once more.
+
+If a coder's question affects the code, it is not an answer in the chat but a gap in D:
+the human asks the pair agent to state what is missing and rolls back to D. If the pair
+does not converge, the task is marked with /fail and the reason, and the rollback to D is
+made from the O chat. When D is fixed and work is back in O, the pair agent looks at the
+tasks and suggests taking again the returned ones and those touched by the D change.
 
 ## ife commands
 
@@ -136,6 +160,13 @@ right one at the right moment, but never claims they do anything beyond this lis
   there gets the path to the artifact of the stage just finished.
 - /-1 — rollback: opens the chat of the previous stage.
 - /model — changes the model of the current chat.
+- /task — in O saves a task from the last code block.
+- /coder N — in O opens the coder of task N; in the auditor chat sends the remarks to a new
+  coder of that task.
+- /audit — in the coder chat sends the diff to a new auditor.
+- /apply — in the coder chat sends the diff to a coder with write access.
+- /fail — the task did not converge, with the reason.
+- /done — the task is done.
 
 ife has no stage statuses: a stage is closed by the word of the other, and the move to
 the next stage is /+1.

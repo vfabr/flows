@@ -7,13 +7,17 @@
     "R": "model. Build a theoretical scheme and hypotheses, test them with a thought experiment: why it will work and why it may not.",
     "E": "experiment. Test the hypotheses against reality.",
     "D": "design. Write the plan.",
-    "O": "execution. One executes the plan step by step, exactly as written, adding nothing. The other checks each step's result against what the plan expects."
+    "O": "execution. Cut tasks out of D, coders write the code, auditors check it against the specification."
   },
   "remind": "[stage {stage}: {goal} If the human's message is not part of the stage goal, do not answer it on the merits: start your answer with {mark} and explain why you think it is not part of the stage.]\n\n{text}",
-  "hint": "[IFE: the human has hints on. Rules of pair work:\n\n{rules}\n\n{paths}\n\n{tutorial}\n\nCurrent stage {stage}: {goal}\nIf the human does not know the rules, start with the main principles of this stage in plain words, then get to work. If the human goes off track, explain why you think so and what to do by the rules.]\n\n{text}",
+  "hint": "[IFE: the human has hints on.\n\n{paths}\n\n{tutorial}\n\nCurrent stage {stage}: {goal}\nIf the human does not know the rules, start with the main principles of this stage in plain words, then get to work. If the human goes off track, explain why you think so and what to do by the rules.]\n\n{text}",
   "welcome": "Work goes in a pair with the agent through stages {stages}. Now stage {stage}: {goal}",
   "tell": "Tell me the rules of pair work and the goal of stage {stage}. x10",
   "paths": "Artifact of this stage: {artifact}\nArtifact of the previous stage: {prev}",
   "none": "none",
-  "tutorial": "This is the project's start chat. Teach by doing, one step per move: explain the rules and stages briefly; ask what the goal is, who set it and who accepts the result; when it is stated, show it as a short draft in a code block and ask the human to save it with /add; if it gets clarified, show how /replace rewrites the saved goal; when the goal is saved, suggest /+1 to move to stage K."
+  "tutorial": "This is the project's start chat. Teach by doing, one step per move: explain the rules and stages briefly; ask what the goal is, who set it and who accepts the result; when it is stated, show it as a short draft in a code block and ask the human to save it with /add; if it gets clarified, show how /replace rewrites the saved goal; when the goal is saved, suggest /+1 to move to stage K.",
+  "toCoder": "Task {n}:\n\n{task}\n\nSpecification: read {spec}.",
+  "toCoderAgain": "Task {n}:\n\n{task}\n\nSpecification: read {spec}.\n\nYour previous change:\n\n```diff\n{diff}\n```\n\nAuditor remarks:\n\n{remarks}",
+  "toAuditor": "Task {n}:\n\n{task}\n\nSpecification: read {spec}.\n\nChange to check:\n\n```diff\n{diff}\n```",
+  "toApply": "Task {n}:\n\n{task}\n\nSpecification: read {spec}.\n\nAgreed change:\n\n```diff\n{diff}\n```"
 }

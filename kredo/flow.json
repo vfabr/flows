@@ -1,6 +1,6 @@
 {
   "name": "kredo",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "passes": ["seed"],
   "start": "goal",
   "rules": "FLOW.{lang}.md",
@@ -8,11 +8,36 @@
   "languages": "languages",
   "layout": {
     "stageArtifact": "metamodel/{pass}/{stage}/artifact.md",
-    "startArtifact": "goal/artifact.md"
+    "startArtifact": "goal/artifact.md",
+    "task": "metamodel/{pass}/O/tasks/{n}/task.jsonl",
+    "taskChat": "metamodel/{pass}/O/tasks/{n}/{author}/{role}-{k}.jsonl"
+  },
+  "access": "readonly",
+  "tasks": {
+    "stage": "O",
+    "spec": "D"
+  },
+  "roles": {
+    "coder": { "access": "readonly", "rules": "roles/coder.{lang}.md" },
+    "auditor": { "access": "readonly", "rules": "roles/auditor.{lang}.md" },
+    "apply": { "access": "readwrite", "rules": "roles/apply.{lang}.md" }
   },
   "offStage": "[OFF]",
   "commands": {
     "back": "/-1",
-    "next": "/+1"
+    "next": "/+1",
+    "task": "/task",
+    "coder": "/coder",
+    "audit": "/audit",
+    "apply": "/apply",
+    "fail": "/fail",
+    "done": "/done"
+  },
+  "chatCommands": {
+    "stage": ["add", "replace", "next", "back", "model"],
+    "tasks": ["add", "replace", "next", "back", "model", "task", "coder"],
+    "coder": ["audit", "apply", "fail", "done", "model"],
+    "auditor": ["coder", "fail", "done", "model"],
+    "apply": ["audit", "fail", "done", "model"]
   }
 }
