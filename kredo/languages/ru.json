@@ -28,5 +28,7 @@
   "expDropped": "## Отменён",
   "outcomeYes": "Итог: подтвердилась",
   "outcomeNo": "Итог: не подтвердилась",
-  "expClosed": "## Закрыт"
+  "expClosed": "## Закрыт",
+  "expArtTitle": "### Эксперимент {n}",
+  "expArtBlock": "{title}\n\n{setup}\n\n{result}\n\nПодробности: {file}"
 }

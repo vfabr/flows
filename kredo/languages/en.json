@@ -28,5 +28,7 @@
   "expDropped": "## Dropped",
   "outcomeYes": "Outcome: confirmed",
   "outcomeNo": "Outcome: not confirmed",
-  "expClosed": "## Closed"
+  "expClosed": "## Closed",
+  "expArtTitle": "### Experiment {n}",
+  "expArtBlock": "{title}\n\n{setup}\n\n{result}\n\nDetails: {file}"
 }
