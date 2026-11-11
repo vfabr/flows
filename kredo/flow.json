@@ -1,6 +1,6 @@
 {
   "name": "kredo",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "passes": [
     "seed"
   ],
@@ -55,7 +55,8 @@
     "apply": "/apply",
     "fail": "/fail",
     "done": "/done",
-    "drop": "/drop"
+    "drop": "/drop",
+    "run": "/run"
   },
   "chatCommands": {
     "stage": [
@@ -104,15 +105,14 @@
       "next",
       "back",
       "model",
-      "task",
-      "coder",
+      "run",
       "drop"
     ],
     "experimenter": [
       "fail",
       "done",
-      "model",
-      "drop"
+      "drop",
+      "model"
     ]
   },
   "experiments": {

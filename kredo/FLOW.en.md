@@ -130,14 +130,17 @@ command, which saves only the last code block of the message.
 ## Experiments
 
 In E the pair agent, at the human's request, states an experiment: which hypothesis from R
-is tested, how, and what we expect to see. It shows the experiment as a code block, the
-human saves it with /task and starts the experimenter with /coder N. Several experiments can
-run at once.
+is tested, how, and what we expect to see. It shows the experiment as a code block, and
+the human saves it and starts the experimenter with /run. Several experiments can run at
+once; follow-ups and work in breadth go on in the experiment's own chat.
 
-The experimenter decides where and on what to test. Drafts, scripts and outputs stay in a
-temporary folder that ife names, and nothing of theirs remains in the project. What remains
-of an experiment in the project is only its setup and its result as text. /done writes the
-result, /fail and /drop write why the experiment was not carried out or was dropped; the
+The project is read only for the experimenter. Drafts, scripts and outputs stay in a
+temporary folder that ife names; if code has to be changed for a check, the experimenter
+copies what is needed there. What remains of an experiment in the project is only its setup
+and its result as text. The result ends with the line "Outcome: confirmed" or "Outcome: not
+confirmed"; a hypothesis that is not confirmed is a result too. /done writes the result (a
+repeated /done replaces it), /fail and /drop write why the experiment was not carried out or
+was dropped; the
 pair agent reads the result and, together with the human, moves the conclusion into the E
 artifact.
 
@@ -187,8 +190,9 @@ right one at the right moment, but never claims they do anything beyond this lis
 - /-1 — rollback: opens the chat of the previous stage and passes the objections there:
   the text after the command or the last code block of the agent's last message.
 - /model — changes the model of the current chat.
-- /task — saves a task in O, an experiment in E, from the last code block.
-- /coder [N] — in E opens the experimenter of experiment N; in O opens the coder of task N;
+- /task — in O saves a task from the last code block.
+- /run — in E saves an experiment from the last code block and starts the experimenter at once.
+- /coder [N] — in O opens the coder of task N;
   without a number takes the one just saved or offers a choice of the open ones; in the auditor chat sends the remarks to a new
   coder of that task.
 - /audit — in the coder chat sends the diff to a new auditor.
@@ -196,7 +200,8 @@ right one at the right moment, but never claims they do anything beyond this lis
   ones); in the coder chat sends the diff to a coder with write access.
 - /fail — the task did not converge, with the reason; the experiment could not be carried
   out. A hypothesis that was not confirmed is a result: such an experiment is closed with /done.
-- /done — the task is done; the experiment is closed.
+- /done [confirmed|not confirmed] — the task is done; the experiment is closed, the outcome
+  is taken from the result or from the text after the command.
 - /drop [N] [reason] — drops a task or an experiment; the history stays, the number is not
   reused, /coder N opens it again.
 

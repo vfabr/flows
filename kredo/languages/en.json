@@ -20,10 +20,14 @@
   "toCoderAgain": "Task {n}:\n\n{task}\n\nSpecification: read {spec}.\n\nYour previous change:\n\n```diff\n{diff}\n```\n\nAuditor remarks:\n\n{remarks}",
   "toAuditor": "Task {n}:\n\n{task}\n\nSpecification: read {spec}.\n\nChange to check:\n\n```diff\n{diff}\n```",
   "toApply": "Task {n}:\n\n{task}\n\nSpecification: read {spec}.\n\nAgreed change:\n\n```diff\n{diff}\n```",
-  "toExperimenter": "Experiment {n}:\n\n{task}\n\nHypotheses: read {spec}.\n\nKeep drafts, scripts and outputs in {scratch}; if you use another folder, name it in the result. Leave no changes in the project. At the end give the result as text in one code block.",
+  "toExperimenter": "Experiment {n}:\n\n{task}\n\nHypotheses: read {spec}.\n\nThe project is read only for you. Keep drafts, scripts and outputs in {scratch}; if you need to change code to check something, copy what you need there and change it there. At the end give the result as text in one code block, and end it with one line: \"Outcome: confirmed\" or \"Outcome: not confirmed\".",
   "expTitle": "# Experiment {n}",
   "expSetup": "## Setup",
   "expResult": "## Result",
   "expFailed": "## Not carried out",
-  "expDropped": "## Dropped"
+  "expDropped": "## Dropped",
+  "outcomeYes": "Outcome: confirmed",
+  "outcomeNo": "Outcome: not confirmed",
+  "outcomeYesWord": "confirmed",
+  "outcomeNoWord": "not confirmed"
 }
