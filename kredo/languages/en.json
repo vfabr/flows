@@ -20,5 +20,10 @@
   "toCoderAgain": "Task {n}:\n\n{task}\n\nSpecification: read {spec}.\n\nYour previous change:\n\n```diff\n{diff}\n```\n\nAuditor remarks:\n\n{remarks}",
   "toAuditor": "Task {n}:\n\n{task}\n\nSpecification: read {spec}.\n\nChange to check:\n\n```diff\n{diff}\n```",
   "toApply": "Task {n}:\n\n{task}\n\nSpecification: read {spec}.\n\nAgreed change:\n\n```diff\n{diff}\n```",
-  "toExperimenter": "Experiment {n}:\n\n{task}\n\nHypotheses: read {spec}.\n\nPut the results (conclusion, measurements, logs, the diff of your changes if any) into {dir}."
+  "toExperimenter": "Experiment {n}:\n\n{task}\n\nHypotheses: read {spec}.\n\nKeep drafts, scripts and outputs in {scratch}; if you use another folder, name it in the result. Leave no changes in the project. At the end give the result as text in one code block.",
+  "expTitle": "# Experiment {n}",
+  "expSetup": "## Setup",
+  "expResult": "## Result",
+  "expFailed": "## Not carried out",
+  "expDropped": "## Dropped"
 }

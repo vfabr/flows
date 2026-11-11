@@ -134,11 +134,12 @@ is tested, how, and what we expect to see. It shows the experiment as a code blo
 human saves it with /task and starts the experimenter with /coder N. Several experiments can
 run at once.
 
-The experimenter decides where and on what to test: what to copy, where to, and how to
-run it. After the experiment no changes of theirs may remain in the project except the
-experiment folder. The results (conclusion, measurements, logs, the diff of changes) go into
-the experiment folder. /done and /fail close the experiment; the pair agent reads its folder
-and, together with the human, moves the conclusion into the E artifact.
+The experimenter decides where and on what to test. Drafts, scripts and outputs stay in a
+temporary folder that ife names, and nothing of theirs remains in the project. What remains
+of an experiment in the project is only its setup and its result as text. /done writes the
+result, /fail and /drop write why the experiment was not carried out or was dropped; the
+pair agent reads the result and, together with the human, moves the conclusion into the E
+artifact.
 
 ## Execution
 
