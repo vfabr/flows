@@ -156,10 +156,17 @@ human's answers and not the coder's reasoning.
 
 Order of a task:
 1. The coder writes the change (diff) in the chat and does not change files.
-2. The auditor checks the diff against the specification.
-3. A coder with write access checks that the diff fits the current code, applies it, runs
-   it, fixes it until it works and checks that earlier tasks did not break.
-4. The auditor checks the applied code against the specification once more.
+2. The auditor checks the diff against the specification. Remarks go back to the coder by
+   themselves, "OK" makes the task ready to apply.
+3. The human starts applying with /apply N. A coder with write access checks that the diff
+   fits the current code, applies it, runs it, fixes it until it works and checks that
+   earlier tasks did not break.
+4. The auditor checks the applied code against the specification once more; "OK" closes the
+   task.
+
+ife runs steps 1–2 and 3–4 by itself and stops when a step does not pass: the coder answered
+without a diff (a question to the human), the auditor did not accept within the allowed
+rounds, applying did not work out.
 
 If a coder's question affects the code, it is not an answer in the chat but a gap in D:
 the human asks the pair agent to state what is missing and rolls back to D. If the pair
@@ -185,7 +192,8 @@ right one at the right moment, but never claims they do anything beyond this lis
   without a number takes the one just saved or offers a choice of the open ones; in the auditor chat sends the remarks to a new
   coder of that task.
 - /audit — in the coder chat sends the diff to a new auditor.
-- /apply — in the coder chat sends the diff to a coder with write access.
+- /apply [N] — in O applies the ready task N (without a number offers a choice of the ready
+  ones); in the coder chat sends the diff to a coder with write access.
 - /fail — the task did not converge, with the reason; the experiment could not be carried
   out. A hypothesis that was not confirmed is a result: such an experiment is closed with /done.
 - /done — the task is done; the experiment is closed.
