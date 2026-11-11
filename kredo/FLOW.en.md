@@ -140,8 +140,8 @@ copies what is needed there. What remains of an experiment in the project is onl
 and its result as text. The result ends with the line "Outcome: confirmed" or "Outcome: not
 confirmed"; a hypothesis that is not confirmed is a result too. ife writes the result
 itself by that line, each new answer replaces the previous one; an answer without the
-outcome line means the experiment was not carried out. /done closes the experiment and adds its setup and result to the E
-artifact (a repeated /done replaces that block), /fail
+outcome line means the experiment was not carried out. /done closes the experiment and adds a line with its outcome and a
+link to its chat to the Experiments section of the E artifact (a repeated /done replaces that line), /fail
 and /drop write why it was not carried out or was dropped; the
 pair agent reads the result and, together with the human, moves the conclusion into the E
 artifact.
@@ -202,7 +202,7 @@ right one at the right moment, but never claims they do anything beyond this lis
   ones); in the coder chat sends the diff to a coder with write access.
 - /fail — the task did not converge, with the reason; the experiment could not be carried
   out. A hypothesis that was not confirmed is a result: such an experiment is closed with /done.
-- /done — the task is done; the experiment is closed and added to the E artifact.
+- /done — the task is done; the experiment is closed and listed in the E artifact.
 - /drop [N] [reason] — drops a task or an experiment; the history stays, the number is not
   reused, /coder N opens it again.
 
