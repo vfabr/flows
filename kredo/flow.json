@@ -1,6 +1,6 @@
 {
   "name": "kredo",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "passes": [
     "seed"
   ],
@@ -45,7 +45,7 @@
       "rules": "roles/experimenter.{lang}.md"
     }
   },
-  "offStage": "[OFF]",
+  "offStage": "[OFFTOP]",
   "commands": {
     "back": "/-1",
     "next": "/+1",
@@ -54,7 +54,8 @@
     "audit": "/audit",
     "apply": "/apply",
     "fail": "/fail",
-    "done": "/done"
+    "done": "/done",
+    "drop": "/drop"
   },
   "chatCommands": {
     "stage": [
@@ -71,26 +72,30 @@
       "back",
       "model",
       "task",
-      "coder"
+      "coder",
+      "drop"
     ],
     "coder": [
       "audit",
       "apply",
       "fail",
       "done",
-      "model"
+      "model",
+      "drop"
     ],
     "auditor": [
       "coder",
       "fail",
       "done",
-      "model"
+      "model",
+      "drop"
     ],
     "apply": [
       "audit",
       "fail",
       "done",
-      "model"
+      "model",
+      "drop"
     ],
     "experiments": [
       "add",
@@ -99,12 +104,14 @@
       "back",
       "model",
       "task",
-      "coder"
+      "coder",
+      "drop"
     ],
     "experimenter": [
       "fail",
       "done",
-      "model"
+      "model",
+      "drop"
     ]
   },
   "experiments": {

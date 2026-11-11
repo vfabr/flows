@@ -16,20 +16,21 @@ taking turns, and neither of you is in charge.
 - **D** — design. Write the plan.
 - **O** — execution. The human cuts tasks out of D, coders write the code, auditors
   check it against the specification. The order is in the "Execution" section.
-- **OT** — side talk. Does not move the work, does not change the state.
 
-Go in order K → R → E → D → O. Each type gives a prediction for the next one. If there
-is no uncertainty, the path collapses: **both** explicitly declare the case trivial and go
-straight to O. Both declare it, not one.
+Go in order K → R → E → D → O. Each type gives a prediction for the next one.
+
+A message that is not part of the current stage goal is off-topic. The agent does not
+answer it on the merits: it starts the answer with [OFFTOP] and explains why it thinks so.
+The human can talk on the side in any other chat.
 
 ## Goal
 
 The goal comes from outside; the pair does not invent it. The goal is found out in the
 project's start chat, before K: the agent asks what the goal is, who its source is and who
 accepts the result, and the human saves the answer verbatim as the goal artifact. K starts
-from that artifact. After that the goal is not discussed, only clarified. The source of the goal accepts the
-result; if at acceptance they say "this is not it", that is a new goal and a new round,
-not a rollback.
+from that artifact. After that the goal is not discussed, only clarified. The result is accepted by the
+source of the goal. There is no separate step for it: when and how is up to them. If they
+say "this is not it", that is a new goal and a new round, not a rollback.
 
 ## Primitives
 
@@ -42,7 +43,9 @@ not a rollback.
 - **Stop** — ending the work with a message about the reason.
 - **Rollback** — going back one stage because it lacks content. There we try to remove
   the uncertainty. If it is not removed, go back one more, and so on down to K. If it is
-  not removed in K either, that is a refusal. The human rolls back with /-1.
+  not removed in K either, that is a refusal. Before a rollback the agent of the current
+  stage states in a code block what the previous stage lacks; the human rolls back with
+  /-1, and these objections go to the chat of the previous stage.
 - **Refusal** — the result "cannot be solved": which type of work blocks, what exactly is
   missing, what was tried and why it did not work.
 
@@ -61,9 +64,10 @@ not a rollback.
 7. One move, one meaning: one statement or one question. The other answers it before
    saying anything of their own. If a message has more than one meaning, the other does
    not answer but returns it: "there are two here, which one first?". A list of facts
-   without questions counts as one meaning; a message always has one question.
+   without questions counts as one meaning; a message has at most one question.
 8. A stage is closed by a separate word from the other. Whoever thinks the stage is done
-   asks "K closed?" and waits for the answer. Answers to questions, silence and agreement
+   asks "<stage> closed?", naming the current stage, for example "R closed?", and waits for
+   the answer. Answers to questions, silence and agreement
    on particular points are not closing. Until the word is said, the stage is open.
    Before answering, each names what they understand incompletely. If the list is not
    empty for at least one of them, the stage is open and the other's "closed" does not
@@ -84,7 +88,7 @@ is lowest. On different types of work the same point of view weighs differently:
 technical one means almost nothing in K and decides in O.
 
 When closing a stage (rule 8), each names a number: their score for the stage artifact.
-The pair accepts one number both agree with. The threshold is agreed in advance. At or
+The pair accepts one number both agree with. The threshold is set by whoever looks at the result from that point of view. At or
 above the threshold, the stage is closed. Below it, discuss further. Moving on below the
 threshold is allowed only if both said so explicitly and it is written down; then the
 next stage is the check of the artifact. A rollback lowers the score retroactively.
@@ -103,18 +107,19 @@ blocker is, where we will roll back to.
 
 ## Session start
 
-Before the first answer in a stage, read the artifact of the previous stage (the
-transition message names it) (in order
-start chat → K → R → E → D → O; the start chat has no previous one, and then this step
-is skipped without mentioning it). ife gives the path in the first message of the
-chat. First move: a short retelling of that artifact, an explicit "I have
-objections" or "no objections". If there are objections, the work is not taken up until
-they are sorted out. The agent does not change this file or the stage statuses.
+Before the first answer in a stage, read the artifact of the previous stage: the
+transition message names its path. The order is start chat → K → R → E → D → O; the start
+chat has no previous stage, and then this step is skipped without mentioning it. First
+move: a short retelling of that artifact, an explicit "I have objections" or "no
+objections". If there are objections, the work is not taken up until they are sorted out. If the chat
+was opened by a rollback, the first move is different: a retelling of the objections
+received, and the work goes on with them.
+The agent does not change the rules and flow files.
 
 ## Stage artifact
 
 One file per stage.
-Skeleton: header (status, input, dialogs), Result, Prediction for the next stage,
+Skeleton: header (input, dialogs), Result, Prediction for the next stage,
 Incomplete. In Result each stage has its own: K knowledge, problem, criterion; R scheme,
 hypotheses, why it may not work; E the plan of experiments and their results; D the common
 architecture: decisions shared by all tasks (interfaces, names, formats, what must not be
@@ -171,15 +176,20 @@ right one at the right moment, but never claims they do anything beyond this lis
 - /replace — the same, but rewrites the artifact.
 - /+1 — after the stage is closed (rule 8), opens the chat of the next stage; the agent
   there gets the path to the artifact of the stage just finished.
-- /-1 — rollback: opens the chat of the previous stage.
+- /-1 — rollback: opens the chat of the previous stage and passes the objections there:
+  the text after the command or the last code block of the agent's last message.
 - /model — changes the model of the current chat.
 - /task — saves a task in O, an experiment in E, from the last code block.
-- /coder N — in E opens the experimenter of experiment N; in O opens the coder of task N; in the auditor chat sends the remarks to a new
+- /coder [N] — in E opens the experimenter of experiment N; in O opens the coder of task N;
+  without a number takes the one just saved or offers a choice of the open ones; in the auditor chat sends the remarks to a new
   coder of that task.
 - /audit — in the coder chat sends the diff to a new auditor.
 - /apply — in the coder chat sends the diff to a coder with write access.
-- /fail — the task did not converge, with the reason; the experiment is closed as failed.
+- /fail — the task did not converge, with the reason; the experiment could not be carried
+  out. A hypothesis that was not confirmed is a result: such an experiment is closed with /done.
 - /done — the task is done; the experiment is closed.
+- /drop [N] [reason] — drops a task or an experiment; the history stays, the number is not
+  reused, /coder N opens it again.
 
 ife has no stage statuses: a stage is closed by the word of the other, and the move to
 the next stage is /+1.

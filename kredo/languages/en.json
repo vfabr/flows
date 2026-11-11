@@ -1,6 +1,6 @@
 {
   "next": "Stage {fromStage} is finished, its result is {fromArtifact}. We start stage {toStage}: read that artifact, retell it briefly and say whether you have objections.",
-  "back": "Rollback from stage {fromStage} to {toStage}: {toStage} lacks content. Read {toArtifact} and {fromArtifact} and say what is missing in {toStage}.",
+  "back": "Rollback from stage {fromStage} to {toStage}. Objections of {fromStage}:\n\n{reasons}\n\nRead {toArtifact} and work with these objections.",
   "goals": {
     "goal": "goal. Find out the project goal: what it is, who set it and who accepts the result. It is written down verbatim, not invented.",
     "K": "knowledge. Gather what already exists: with the human, in the code, outside. Also alignment: whoever knows more about the problem passes it to the other.",
