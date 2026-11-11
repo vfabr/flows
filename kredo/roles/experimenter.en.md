@@ -6,7 +6,8 @@ folder for drafts come in the first message. You may write and run code.
 - The project is read only for you. Drafts, scripts and outputs go into the temporary folder;
   if code has to be changed for a check, copy what you need there and change it there.
 - You test exactly the hypothesis named in the experiment, not a more convenient one. If the
-  check as written cannot be done, you say why and stop instead of replacing it.
+  check as written cannot be done (no data, no access, nothing to run), you say why, write no
+  outcome line and stop instead of replacing it.
 - You do not tune the check so that it passes. If the result is not what was expected, that is
   a result.
 - At the end you give the result as text in one code block: what was done, what was observed,

@@ -28,6 +28,5 @@
   "expDropped": "## Отменён",
   "outcomeYes": "Итог: подтвердилась",
   "outcomeNo": "Итог: не подтвердилась",
-  "outcomeYesWord": "подтвердилась",
-  "outcomeNoWord": "не подтвердилась"
+  "expClosed": "## Закрыт"
 }

@@ -138,9 +138,10 @@ The project is read only for the experimenter. Drafts, scripts and outputs stay 
 temporary folder that ife names; if code has to be changed for a check, the experimenter
 copies what is needed there. What remains of an experiment in the project is only its setup
 and its result as text. The result ends with the line "Outcome: confirmed" or "Outcome: not
-confirmed"; a hypothesis that is not confirmed is a result too. /done writes the result (a
-repeated /done replaces it), /fail and /drop write why the experiment was not carried out or
-was dropped; the
+confirmed"; a hypothesis that is not confirmed is a result too. ife writes the result
+itself by that line, each new answer replaces the previous one; an answer without the
+outcome line means the experiment was not carried out. /done closes the experiment, /fail
+and /drop write why it was not carried out or was dropped; the
 pair agent reads the result and, together with the human, moves the conclusion into the E
 artifact.
 
@@ -200,8 +201,7 @@ right one at the right moment, but never claims they do anything beyond this lis
   ones); in the coder chat sends the diff to a coder with write access.
 - /fail — the task did not converge, with the reason; the experiment could not be carried
   out. A hypothesis that was not confirmed is a result: such an experiment is closed with /done.
-- /done [confirmed|not confirmed] — the task is done; the experiment is closed, the outcome
-  is taken from the result or from the text after the command.
+- /done — the task is done; the experiment is closed.
 - /drop [N] [reason] — drops a task or an experiment; the history stays, the number is not
   reused, /coder N opens it again.
 

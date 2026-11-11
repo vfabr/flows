@@ -28,6 +28,5 @@
   "expDropped": "## Dropped",
   "outcomeYes": "Outcome: confirmed",
   "outcomeNo": "Outcome: not confirmed",
-  "outcomeYesWord": "confirmed",
-  "outcomeNoWord": "not confirmed"
+  "expClosed": "## Closed"
 }
