@@ -122,6 +122,19 @@ touched) and how to check that nothing broke; O what was done and the deviations
 in the chat as a code block; after "agreed" the human writes it with the /add or /replace
 command, which saves only the last code block of the message.
 
+## Experiments
+
+In E the pair agent, at the human's request, states an experiment: which hypothesis from R
+is tested, how, and what we expect to see. It shows the experiment as a code block, the
+human saves it with /task and starts the experimenter with /coder N. Several experiments can
+run at once.
+
+The experimenter decides where and on what to test: what to copy, where to, and how to
+run it. After the experiment no changes of theirs may remain in the project except the
+experiment folder. The results (conclusion, measurements, logs, the diff of changes) go into
+the experiment folder. /done and /fail close the experiment; the pair agent reads its folder
+and, together with the human, moves the conclusion into the E artifact.
+
 ## Execution
 
 In O the pair agent, at the human's request, cuts a task out of D: what to do and which
@@ -160,13 +173,13 @@ right one at the right moment, but never claims they do anything beyond this lis
   there gets the path to the artifact of the stage just finished.
 - /-1 — rollback: opens the chat of the previous stage.
 - /model — changes the model of the current chat.
-- /task — in O saves a task from the last code block.
-- /coder N — in O opens the coder of task N; in the auditor chat sends the remarks to a new
+- /task — saves a task in O, an experiment in E, from the last code block.
+- /coder N — in E opens the experimenter of experiment N; in O opens the coder of task N; in the auditor chat sends the remarks to a new
   coder of that task.
 - /audit — in the coder chat sends the diff to a new auditor.
 - /apply — in the coder chat sends the diff to a coder with write access.
-- /fail — the task did not converge, with the reason.
-- /done — the task is done.
+- /fail — the task did not converge, with the reason; the experiment is closed as failed.
+- /done — the task is done; the experiment is closed.
 
 ife has no stage statuses: a stage is closed by the word of the other, and the move to
 the next stage is /+1.

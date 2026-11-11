@@ -1,16 +1,26 @@
 {
   "name": "kredo",
-  "version": "1.8.0",
-  "passes": ["seed"],
+  "version": "1.9.0",
+  "passes": [
+    "seed"
+  ],
   "start": "goal",
   "rules": "FLOW.{lang}.md",
-  "stages": ["K", "R", "E", "D", "O"],
+  "stages": [
+    "K",
+    "R",
+    "E",
+    "D",
+    "O"
+  ],
   "languages": "languages",
   "layout": {
     "stageArtifact": "metamodel/{pass}/{stage}/artifact.md",
     "startArtifact": "goal/artifact.md",
     "task": "metamodel/{pass}/O/tasks/{n}/task.jsonl",
-    "taskChat": "metamodel/{pass}/O/tasks/{n}/{author}/{role}-{k}.jsonl"
+    "taskChat": "metamodel/{pass}/O/tasks/{n}/{author}/{role}-{k}.jsonl",
+    "experiment": "metamodel/{pass}/E/experiments/{n}/experiment.jsonl",
+    "experimentChat": "metamodel/{pass}/E/experiments/{n}/{author}/{role}-{k}.jsonl"
   },
   "access": "readonly",
   "tasks": {
@@ -18,9 +28,22 @@
     "spec": "D"
   },
   "roles": {
-    "coder": { "access": "readonly", "rules": "roles/coder.{lang}.md" },
-    "auditor": { "access": "readonly", "rules": "roles/auditor.{lang}.md" },
-    "apply": { "access": "readwrite", "rules": "roles/apply.{lang}.md" }
+    "coder": {
+      "access": "readonly",
+      "rules": "roles/coder.{lang}.md"
+    },
+    "auditor": {
+      "access": "readonly",
+      "rules": "roles/auditor.{lang}.md"
+    },
+    "apply": {
+      "access": "readwrite",
+      "rules": "roles/apply.{lang}.md"
+    },
+    "experimenter": {
+      "access": "readwrite",
+      "rules": "roles/experimenter.{lang}.md"
+    }
   },
   "offStage": "[OFF]",
   "commands": {
@@ -34,10 +57,60 @@
     "done": "/done"
   },
   "chatCommands": {
-    "stage": ["add", "replace", "next", "back", "model"],
-    "tasks": ["add", "replace", "next", "back", "model", "task", "coder"],
-    "coder": ["audit", "apply", "fail", "done", "model"],
-    "auditor": ["coder", "fail", "done", "model"],
-    "apply": ["audit", "fail", "done", "model"]
+    "stage": [
+      "add",
+      "replace",
+      "next",
+      "back",
+      "model"
+    ],
+    "tasks": [
+      "add",
+      "replace",
+      "next",
+      "back",
+      "model",
+      "task",
+      "coder"
+    ],
+    "coder": [
+      "audit",
+      "apply",
+      "fail",
+      "done",
+      "model"
+    ],
+    "auditor": [
+      "coder",
+      "fail",
+      "done",
+      "model"
+    ],
+    "apply": [
+      "audit",
+      "fail",
+      "done",
+      "model"
+    ],
+    "experiments": [
+      "add",
+      "replace",
+      "next",
+      "back",
+      "model",
+      "task",
+      "coder"
+    ],
+    "experimenter": [
+      "fail",
+      "done",
+      "model"
+    ]
+  },
+  "experiments": {
+    "stage": "E",
+    "spec": "R",
+    "role": "experimenter",
+    "text": "toExperimenter"
   }
 }
