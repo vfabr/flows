@@ -194,6 +194,7 @@ right one at the right moment, but never claims they do anything beyond this lis
 - /-1 — rollback: opens the chat of the previous stage and passes the objections there:
   the text after the command or the last code block of the agent's last message.
 - /model — changes the model of the current chat.
+- /short [N] — asks the agent to say its last answer shorter, in at most N words.
 - /task — in O saves a task from the last code block.
 - /run — in E saves an experiment from the last code block and starts the experimenter at once.
 - /coder [N] — in O opens the coder of task N;
