@@ -1,6 +1,6 @@
 {
   "name": "kredo",
-  "version": "1.17.0",
+  "version": "1.18.0",
   "passes": [
     "seed"
   ],
@@ -20,7 +20,8 @@
     "task": "metamodel/{pass}/O/tasks/{n}/task.jsonl",
     "taskChat": "metamodel/{pass}/O/tasks/{n}/{author}/{role}-{k}.jsonl",
     "experiment": "metamodel/{pass}/E/{author}/experiments/{n}/experiment.jsonl",
-    "experimentChat": "metamodel/{pass}/E/{author}/experiments/{n}/chat.jsonl"
+    "experimentChat": "metamodel/{pass}/E/{author}/experiments/{n}/chat.jsonl",
+    "experimentList": "metamodel/{pass}/E/experiments.json"
   },
   "access": "readonly",
   "tasks": {
@@ -119,7 +120,8 @@
     "stage": "E",
     "spec": "R",
     "role": "experimenter",
-    "text": "toExperimenter"
+    "text": "toExperimenter",
+    "list": "experimentList"
   },
   "auto": {
     "diff": "diff",

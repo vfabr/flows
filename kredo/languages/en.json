@@ -22,8 +22,5 @@
   "toApply": "Task {n}:\n\n{task}\n\nSpecification: read {spec}.\n\nAgreed change:\n\n```diff\n{diff}\n```",
   "toExperimenter": "Experiment {n}:\n\n{task}\n\nHypotheses: read {spec}.\n\nThe project is read only for you. Keep drafts, scripts and outputs in {scratch}; if you need to change code to check something, copy what you need there and change it there. At the end give the result as text in one code block, and end it with one line: \"Outcome: confirmed\" or \"Outcome: not confirmed\".",
   "outcomeYes": "Outcome: confirmed",
-  "outcomeNo": "Outcome: not confirmed",
-  "expArtTitle": "## Experiments",
-  "expArtItem": "- Experiment {n}.",
-  "expArtLine": "{item} {outcome} — {file}"
+  "outcomeNo": "Outcome: not confirmed"
 }

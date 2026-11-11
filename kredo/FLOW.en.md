@@ -109,7 +109,9 @@ blocker is, where we will roll back to.
 
 Before the first answer in a stage, read the artifact of the previous stage: the
 transition message names its path. The order is start chat → K → R → E → D → O; the start
-chat has no previous stage, and then this step is skipped without mentioning it. First
+chat has no previous stage, and then this step is skipped without mentioning it. In D, also
+read experiments.json next to the E artifact: the list of closed experiments with the
+outcome and a link to the chat of each. First
 move: a short retelling of that artifact, an explicit "I have objections" or "no
 objections". If there are objections, the work is not taken up until they are sorted out. If the chat
 was opened by a rollback, the first move is different: a retelling of the objections
@@ -140,8 +142,8 @@ copies what is needed there. What remains of an experiment in the project is onl
 and its result as text. The result ends with the line "Outcome: confirmed" or "Outcome: not
 confirmed"; a hypothesis that is not confirmed is a result too. ife writes the result
 itself by that line, each new answer replaces the previous one; an answer without the
-outcome line means the experiment was not carried out. /done closes the experiment and adds a line with its outcome and a
-link to its chat to the Experiments section of the E artifact (a repeated /done replaces that line), /fail
+outcome line means the experiment was not carried out. /done closes the experiment and adds its outcome and a link to its chat
+to experiments.json next to the E artifact; only ife writes that file. /fail
 and /drop write why it was not carried out or was dropped; the
 pair agent reads the result and, together with the human, moves the conclusion into the E
 artifact.
@@ -202,7 +204,7 @@ right one at the right moment, but never claims they do anything beyond this lis
   ones); in the coder chat sends the diff to a coder with write access.
 - /fail — the task did not converge, with the reason; the experiment could not be carried
   out. A hypothesis that was not confirmed is a result: such an experiment is closed with /done.
-- /done — the task is done; the experiment is closed and listed in the E artifact.
+- /done — the task is done; the experiment is closed and listed in experiments.json.
 - /drop [N] [reason] — drops a task or an experiment; the history stays, the number is not
   reused, /coder N opens it again.
 
