@@ -198,9 +198,9 @@ right one at the right moment, but never claims they do anything beyond this lis
 - /task — in O saves a task from the last code block.
 - /run — in E saves an experiment from the last code block and starts the experimenter at once.
 - /coder [N] — in O opens the coder of task N;
-  without a number takes the one just saved or offers a choice of the open ones; in the auditor chat sends the remarks to a new
-  coder of that task.
-- /audit — in the coder chat sends the diff to a new auditor.
+  without a number takes the one just saved or offers a choice of the open ones; in the auditor chat sends the remarks to the coder of
+  that task, into the same coder chat.
+- /audit — in the coder chat sends the diff to the auditor of that task, into the same auditor chat.
 - /apply [N] — in O applies the ready task N (without a number offers a choice of the ready
   ones); in the coder chat sends the diff to a coder with write access.
 - /fail — the task did not converge, with the reason; the experiment could not be carried

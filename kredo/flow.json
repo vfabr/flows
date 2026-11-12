@@ -1,6 +1,6 @@
 {
   "name": "kredo",
-  "version": "1.20.0",
+  "version": "1.21.0",
   "passes": [
     "seed"
   ],
@@ -18,7 +18,7 @@
     "stageArtifact": "metamodel/{pass}/{stage}/artifact.md",
     "startArtifact": "goal/artifact.md",
     "task": "metamodel/{pass}/O/{author}/tasks/{n}/task.jsonl",
-    "taskChat": "metamodel/{pass}/O/{author}/tasks/{n}/{role}-{k}.jsonl",
+    "taskChat": "metamodel/{pass}/O/{author}/tasks/{n}/{role}.jsonl",
     "experiment": "metamodel/{pass}/E/{author}/experiments/{n}/experiment.jsonl",
     "experimentChat": "metamodel/{pass}/E/{author}/experiments/{n}/chat.jsonl",
     "experimentList": "metamodel/{pass}/E/experiments.json"
