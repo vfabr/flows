@@ -30,7 +30,20 @@ project's start chat, before K: the agent asks what the goal is, who its source 
 accepts the result, and the human saves the answer verbatim as the goal artifact. K starts
 from that artifact. After that the goal is not discussed, only clarified. The result is accepted by the
 source of the goal. There is no separate step for it: when and how is up to them. If they
-say "this is not it", that is a new goal and a new round, not a rollback.
+say "this is not it", that is a new goal and a new iteration, not a rollback.
+
+## Iterations
+
+Work on a project goes in iterations. Each iteration is a full pass K → R → E → D → O for
+one piece; it has its own artifacts, experiments and tasks. All iterations share the goal.
+
+- The first iteration, seed, prepares the infrastructure, the test environment and a PoC.
+- After that, a new iteration is opened for each next piece of functionality.
+- A bug is an iteration too: while its cause is unknown, it is a problem. K reproduces the
+  bug, R explains the cause, E checks it. If the cause is obvious, the pair goes through
+  these stages briefly.
+- K of a new iteration starts from the artifacts of the previous iterations: what is
+  already built and already checked is not found out again.
 
 ## Primitives
 
@@ -204,6 +217,7 @@ right one at the right moment, but never claims they do anything beyond this lis
   the text after the command or the last code block of the agent's last message.
 - /model — changes the model of the current chat.
 - /short [N] — asks the agent to say its last answer shorter, in at most N words.
+- /iteration name — creates a new iteration and opens its K chat.
 - /task — in O saves a task from the last code block.
 - /run — in E saves an experiment from the last code block and starts the experimenter at once.
 - /coder [N] — in O opens the coder of task N;

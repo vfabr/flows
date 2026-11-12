@@ -1,9 +1,7 @@
 {
   "name": "kredo",
-  "version": "1.25.0",
-  "passes": [
-    "seed"
-  ],
+  "version": "1.26.0",
+  "iteration": "seed",
   "start": "goal",
   "rules": "FLOW.{lang}.md",
   "stages": [
@@ -15,13 +13,13 @@
   ],
   "languages": "languages",
   "layout": {
-    "stageArtifact": "metamodel/{pass}/{stage}/artifact.md",
+    "stageArtifact": "metamodel/{iteration}/{stage}/artifact.md",
     "startArtifact": "goal/artifact.md",
-    "task": "metamodel/{pass}/O/{author}/tasks/{n}/task.jsonl",
-    "taskChat": "metamodel/{pass}/O/{author}/tasks/{n}/{role}.jsonl",
-    "experiment": "metamodel/{pass}/E/{author}/experiments/{n}/experiment.jsonl",
-    "experimentChat": "metamodel/{pass}/E/{author}/experiments/{n}/chat.jsonl",
-    "experimentList": "metamodel/{pass}/E/experiments.json"
+    "task": "metamodel/{iteration}/O/{author}/tasks/{n}/task.jsonl",
+    "taskChat": "metamodel/{iteration}/O/{author}/tasks/{n}/{role}.jsonl",
+    "experiment": "metamodel/{iteration}/E/{author}/experiments/{n}/experiment.jsonl",
+    "experimentChat": "metamodel/{iteration}/E/{author}/experiments/{n}/chat.jsonl",
+    "experimentList": "metamodel/{iteration}/E/experiments.json"
   },
   "access": "readonly",
   "tasks": {
@@ -66,7 +64,8 @@
       "next",
       "back",
       "model",
-      "short"
+      "short",
+      "iteration"
     ],
     "tasks": [
       "add",
@@ -77,7 +76,8 @@
       "task",
       "coder",
       "drop",
-      "apply"
+      "apply",
+      "iteration"
     ],
     "coder": [
       "audit",
@@ -108,7 +108,8 @@
       "back",
       "model",
       "run",
-      "drop"
+      "drop",
+      "iteration"
     ],
     "experimenter": [
       "fail",
@@ -126,7 +127,10 @@
   },
   "tests": {
     "file": "tests/run.sh",
-    "run": ["bash", "tests/run.sh"],
+    "run": [
+      "bash",
+      "tests/run.sh"
+    ],
     "timeout": 300000,
     "tail": 60,
     "text": "toApplyTests"
