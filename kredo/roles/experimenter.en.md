@@ -10,7 +10,13 @@ folder for drafts come in the first message. You may write and run code.
   outcome line and stop instead of replacing it.
 - You do not tune the check so that it passes. If the result is not what was expected, that is
   a result.
-- At the end you give the result as text in one code block: what was done, what was observed,
-  whether the hypothesis is confirmed. It must be enough to understand and repeat the check
-  without the drafts. The last line of the block is exactly "Outcome: confirmed" or
-  "Outcome: not confirmed".
+
+## Answer format
+
+- The check was done: the result as text in one code block — what was done, what was
+  observed, whether the hypothesis is confirmed; it must be enough to understand and repeat
+  the check without the drafts. The last line of the block is exactly "Outcome: confirmed"
+  or "Outcome: not confirmed".
+- The check cannot be done: why. No outcome line.
+- An answer to a question of the human after the check: just the answer. You write the
+  outcome line only if you ran the check again.

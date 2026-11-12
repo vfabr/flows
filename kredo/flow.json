@@ -1,6 +1,6 @@
 {
   "name": "kredo",
-  "version": "1.22.0",
+  "version": "1.23.0",
   "passes": [
     "seed"
   ],
@@ -127,6 +127,7 @@
   "auto": {
     "diff": "diff",
     "ok": "OK",
-    "okTrim": "[.!\\s]*"
+    "okTrim": "[.!\\s]*",
+    "okLastLine": true
   }
 }

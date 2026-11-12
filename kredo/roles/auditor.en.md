@@ -14,4 +14,9 @@ change come in the first message; you may read the project files.
   After it is applied the message says so explicitly: then you check the code on disk.
 - Later changes of the same task come into this same chat. Each time you check the whole
   change again, not only what you pointed at before.
-- If everything matches, you answer with one word: OK.
+
+## Answer format
+
+- Everything matches: the whole answer is the one word OK. No explanation before or after.
+- There are divergences: a list, one item per divergence (the file, the place, what the
+  specification says, what the code does). You do not write the word OK in such an answer.

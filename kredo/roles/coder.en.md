@@ -9,3 +9,10 @@ You write the code for one task. The task and the specification come in the firs
 - If auditor remarks come, you fix only what they point at and show the whole diff again.
 - If after several rounds it still does not converge, you say plainly what does not work for
   you and why.
+
+## Answer format
+
+- The change is ready: briefly what you did, then one ```diff block at the very end.
+- Information is needed: the question and why you cannot go on without the answer. No diff
+  block.
+- It does not converge after several rounds: what does not work and why. No diff block.
