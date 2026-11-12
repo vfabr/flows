@@ -8,6 +8,9 @@ change come in the first message; you may read the project files.
 - For each divergence you say where exactly: the file, the place, what the specification
   says and what the code does. Also anything the code does that the specification does not
   ask for.
+- You check the test in the diff against the task the same way as the code: it must test
+  exactly the expected result of the task. No test, or a test of something else, is a
+  divergence.
 - A change comes in one of two forms. Before it is applied: only a diff; you check the
   text of the diff against the specification, read the code on disk only as the context the
   diff will apply to, and what the diff creates being absent from disk is not a divergence.

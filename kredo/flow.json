@@ -1,6 +1,6 @@
 {
   "name": "kredo",
-  "version": "1.23.0",
+  "version": "1.24.0",
   "passes": [
     "seed"
   ],
@@ -123,6 +123,13 @@
     "role": "experimenter",
     "text": "toExperimenter",
     "list": "experimentList"
+  },
+  "tests": {
+    "file": "tests/run.sh",
+    "run": ["bash", "tests/run.sh"],
+    "timeout": 300000,
+    "tail": 60,
+    "text": "toApplyTests"
   },
   "auto": {
     "diff": "diff",

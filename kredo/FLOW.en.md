@@ -125,7 +125,8 @@ Skeleton: header (input, dialogs), Result, Prediction for the next stage,
 Incomplete. In Result each stage has its own: K knowledge, problem, criterion; R scheme,
 hypotheses, why it may not work; E the plan of experiments and their results; D the common
 architecture: decisions shared by all tasks (interfaces, names, formats, what must not be
-touched) and how to check that nothing broke; O what was done and the deviations. The agent shows the draft
+touched) and how to check that nothing broke; the first task of D is always the test
+environment: the script tests/run.sh that runs all tests of the project; O what was done and the deviations. The agent shows the draft
 in the chat as a code block; after "agreed" the human writes it with the /add or /replace
 command, which saves only the last code block of the message.
 
@@ -168,12 +169,20 @@ Order of a task:
 3. The human starts applying with /apply N. A coder with write access checks that the diff
    fits the current code, applies it, runs it, fixes it until it works and checks that
    earlier tasks did not break.
-4. The auditor checks the applied code against the specification once more; "OK" closes the
+4. ife itself runs all tests of the project: bash tests/run.sh. If they fail, the output goes
+   back to the applying coder; if they pass, on to step 5. While the script does not exist,
+   the step is skipped.
+5. The auditor checks the applied code against the specification once more; "OK" closes the
    task.
 
-ife runs steps 1–2 and 3–4 by itself and stops when a step does not pass: the coder answered
+Tests are part of every task: the coder puts into the diff a test of the expected result of
+the task so that tests/run.sh runs it, and the auditor checks the test against the task the
+same way as the code. tests/run.sh runs all tests of the project and exits with code 0 only if
+all of them pass.
+
+ife runs steps 1–2 and 3–5 by itself and stops when a step does not pass: the coder answered
 without a diff (a question to the human), the auditor did not accept within the allowed
-rounds, applying did not work out.
+rounds, applying did not work out, the tests did not pass within the allowed rounds.
 
 If a coder's question affects the code, it is not an answer in the chat but a gap in D:
 the human asks the pair agent to state what is missing and rolls back to D. If the pair
