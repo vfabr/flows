@@ -9,7 +9,7 @@
     "D": "design. Write the plan.",
     "O": "execution. Cut tasks out of D, coders write the code, auditors check it against the specification."
   },
-  "remind": "[stage {stage}: {goal} If the human's message is not part of the stage goal, do not answer it on the merits: start your answer with {mark} and explain why you think it is not part of the stage.]\n\n{text}",
+  "remind": "[stage {stage}; off-stage: start your answer with {mark}]\n\n{text}",
   "hint": "[IFE: the human has hints on.\n\n{paths}\n\n{tutorial}\n\nCurrent stage {stage}: {goal}\nIf the human does not know the rules, start with the main principles of this stage in plain words, then get to work. If the human goes off track, explain why you think so and what to do by the rules.]\n\n{text}",
   "welcome": "Work goes in a pair with the agent through stages {stages}. Now stage {stage}: {goal}",
   "tell": "Tell me the rules of pair work and the goal of stage {stage}. x10",
